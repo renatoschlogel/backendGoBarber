@@ -40,6 +40,7 @@
   * Adicionar a depencia eslint     : yarn add eslint -D
   * iniciar arquivo de configuração : yarn eslint --init
   * Prettier :yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+  * para encontrar os erros do projeto : yarn eslint --fix src --ext .js
 
 ## Configurando o Sequelize;
   * Adicionando dependencia: yarn add sequelize;
