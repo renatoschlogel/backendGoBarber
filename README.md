@@ -64,6 +64,9 @@
 # Validação dos dados de entrada
   1. para efetuar as validaçãoes: yarn add yup 
 
+# Upload de arquivos
+  para fazer uplod              : yarn add multer;
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
