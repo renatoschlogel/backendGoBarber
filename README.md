@@ -65,7 +65,12 @@
   1. para efetuar as validaçãoes: yarn add yup 
 
 # Upload de arquivos
-  para fazer uplod              : yarn add multer;
+  1. Para fazer uplod           : yarn add multer;
+
+# Trabalhar com datas:
+ 1. Trabalhar com data (next=ultima versao) : yarn add date-fns@next;
+ 2. function parseISO           : converte data String para dete do JS;
+ 3. startOfHour                 : zera os minutos da hora;
 
 ## :memo: Licença
 
