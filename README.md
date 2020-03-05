@@ -72,6 +72,10 @@
  2. function parseISO           : converte data String para dete do JS;
  3. startOfHour                 : zera os minutos da hora;
 
+# Configurando o MongoDB:
+  1. Subindo um container docker: docker container run --name mondobarber -p 27017:27017 -d -t mongo
+  2. Adicionando mongose(semelhante ao sequelize) : yarn add mongoose;
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
