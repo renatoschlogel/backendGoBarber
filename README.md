@@ -73,7 +73,7 @@
  3. startOfHour                 : zera os minutos da hora;
 
 # Configurando o MongoDB:
-  1. Subindo um container docker: docker container run --name mondobarber -p 27017:27017 -d -t mongo
+  1. Subindo um container docker: docker container run --name mongobarber -p 27017:27017 -d -t mongo
   2. Adicionando mongose(semelhante ao sequelize) : yarn add mongoose;
 
 ## :memo: Licença
