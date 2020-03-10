@@ -76,6 +76,11 @@
   1. Subindo um container docker: docker container run --name mongobarber -p 27017:27017 -d -t mongo
   2. Adicionando mongose(semelhante ao sequelize) : yarn add mongoose;
 
+# Envio de email
+  1. Bibioteca par aenviar emails: ;
+  2. utilizaremos para testar o https://mailtrap.io/;
+    obs: o mailtrap é somete para desenvolvimento. Quando for para produção utilizar Amazon SES, MAilgun , ou Sparkpost
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
