@@ -81,6 +81,11 @@
   2. utilizaremos para testar o https://mailtrap.io/;
     obs: o mailtrap é somete para desenvolvimento. Quando for para produção utilizar Amazon SES, MAilgun , ou Sparkpost
 
+## Templates de email:
+  1. site que utilizaremos: https://handlebarsjs.com/
+  2. integração com express: yarn add express-handlebars
+  3. integração do nodemailer com biblioteca acima : yarn add nodemailer-express-handlebars  
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
