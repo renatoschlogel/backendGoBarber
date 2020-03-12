@@ -86,6 +86,12 @@
   2. integração com express: yarn add express-handlebars
   3. integração do nodemailer com biblioteca acima : yarn add nodemailer-express-handlebars  
 
+## Configurando fila com banco Redis:
+  1. subindo redis com docker: docker container run --name redisbarber -p 6379:6379 -d -t redis:alpine
+  2. Biblioteca para gerenciar fila com muita performace: yarn add bee-queue;
+     obs: alternativa com mais robustes: kue
+
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
