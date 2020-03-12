@@ -90,6 +90,8 @@
   1. subindo redis com docker: docker container run --name redisbarber -p 6379:6379 -d -t redis:alpine
   2. Biblioteca para gerenciar fila com muita performace: yarn add bee-queue;
      obs: alternativa com mais robustes: kue
+  3. Foi subido um novo servidor para as filas : yarn queue;
+  
 
 
 ## :memo: Licença
