@@ -1,103 +1,164 @@
-# Backend Go Barber;
+# gostack-n2-primeiro-projeto-node - Primeiro projeto com Node.js e TypeScript
 
-## Configurando a estrutura:
-  1. criando projeto               : yarn init;
-  2. adicionando o express         : yarn add express;
-  3. criar pasta src;
-  4. Criar arquivos app.js, routes.js e server.js;  
-
-  - Faz o carregamento automatico das alteracoes feitas;
-
-## Nodemon e Sucrase:
-  1. adicionando a dependencias    : yarn add sucrase nodemon -D;
-  - Sucrase é utilizado para usar a nova syntaxe (import);
-    * requirq -> import
-    * module.export -> export default
-  - Nodemon faz o carregamento automatico das alteracoes feitas;
-  - scripts: 
-  ```
-   "scripts": {
-    "dev": "nodemon src/server.js",
-    "dev:debug": "nodemon --inspect src/server.js"
-  },
-  ```
-  - Criar arquivo nodemon.json na raiz e colocar o seguinte conteudo:
-  ```
-  {
-  "execMap": {
-    "js": "node -r sucrase/register"
-  }
-}
-  ```
-  - no arquivo lauch.json do debug alterar:
-  ```
-   "request": "attach",
-    "protocol": "inspector"
-  ```
-
-## ESlint, Prettier & EditorConfig
-
-  * Adicionar a depencia eslint     : yarn add eslint -D
-  * iniciar arquivo de configuração : yarn eslint --init
-  * Prettier :yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
-  * para encontrar os erros do projeto : yarn eslint --fix src --ext .js
-
-## Configurando o Sequelize;
-  * Adicionando dependencia: yarn add sequelize;
-  * Adicionando dependencia: yarn add sequelize-cli -D;
-
-# Cadastro e Autenticação de usuario:
-
-## Migration de Usuario:
-  1. Criando a migration        : yarn sequelize migration:create --name=create-users;
-  2. rodar migration            : yarn sequelize db:migrate;
-  2. defazer a ultima migration : yarn sequelize db:migrate:undo;
-  3. Rodar seeds                : yarn sequelize db:seed:all
-
-
-## Gerar hash da senha
-  1. para criptografar          : yarn add bcryptjs
-
-# JWT - token
-  1 . para gerar o token        : yarn add jsonwebtoken;
-
-# Validação dos dados de entrada
-  1. para efetuar as validaçãoes: yarn add yup 
-
-# Upload de arquivos
-  1. Para fazer uplod           : yarn add multer;
-
-# Trabalhar com datas:
- 1. Trabalhar com data (next=ultima versao) : yarn add date-fns@next;
- 2. function parseISO           : converte data String para dete do JS;
- 3. startOfHour                 : zera os minutos da hora;
-
-# Configurando o MongoDB:
-  1. Subindo um container docker: docker container run --name mongobarber -p 27017:27017 -d -t mongo
-  2. Adicionando mongose(semelhante ao sequelize) : yarn add mongoose;
-
-# Envio de email
-  1. Bibioteca par aenviar emails: ;
-  2. utilizaremos para testar o https://mailtrap.io/;
-    obs: o mailtrap é somete para desenvolvimento. Quando for para produção utilizar Amazon SES, MAilgun , ou Sparkpost
-
-## Templates de email:
-  1. site que utilizaremos: https://handlebarsjs.com/
-  2. integração com express: yarn add express-handlebars
-  3. integração do nodemailer com biblioteca acima : yarn add nodemailer-express-handlebars  
-
-## Configurando fila com banco Redis:
-  1. subindo redis com docker: docker container run --name redisbarber -p 6379:6379 -d -t redis:alpine
-  2. Biblioteca para gerenciar fila com muita performace: yarn add bee-queue;
-     obs: alternativa com mais robustes: kue
-  3. Foi subido um novo servidor para as filas : yarn queue;
+###### Este projeto, é um passo a passo para a criação de um projeto em NodeJs com TypeScript, utiliando ferramentas  ts-node-dev, ESLint, Prettier e EditorConfig, o de forma a padronizar o o desenvolvimento entre todos os desenvolvedores. Também possui possui a explicação da utilização do Debug no VSCode.
+ 
+ 
+## Tecnologias utilizadas
+  - NodeJs;
+  - TypeScript;
+  - Yarn;
+  - Express;
+  - ESLint;
+  - Prettier;
+  - ts-node-dev;
+  - EditorConfig;
   
+  
+## Utilizando este Projeto:
+
+   1. Fazer o clone no mesmo;
+   2. Acessar a parta do projetos e instalar as dependencias: yarn install;
+   3. Executar a aplicação como dev: yarn dev:server;
+   4. Acessar a aplicação no navegado : http://localhost:3333
+   
+###### Buildar o projeto: yarn build
+   Ao fazer o build da apricação, sera criado a pasta dist, na raiz do projeto, com a mesma estrutura que a srv, com os fontes buildados;
+  
+  
+## Passado a passo utilizado para a construção e configuração deste projeto
+
+### Configurando Estrutura
+
+  Criando e configurando um projeto node com typescript
+
+  1. Criar pasta e acessa-la;
+  2. iniciar projeto node     : yarn init -y;
+  3. Adicionar express        : yarn add express;
+  4. Adicionar o typescript   : yarn add typescript -D;
+  5. iniciar configuração do typescript (tsconfig.json): yarn tsc --init;
+  6. Criar pasta src ;
+  7. apostar esta pasta no tsconfig.json;
+     "outDir": "./dist",
+     "rootDir": "./src",
+  8. Comando para converter os qrquivos ts em js: yarn tsc;
+  9. instalar a lib de tipos do express: yarn add @types/express -D;
+  10. Adicionar ts-node-dev: yarn add ts-node-dev -D;
+  11. Configurar Scrips build e dev:server  no package.json;
+  12. utilizar o comando a seguir par starta o server de dev: yarn dev:server;
 
 
-## :memo: Licença
+### EditorConfig
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+  Ferramenta para padronizar configurações entre diferentes editores de codigo;
 
----
+  1. Instalar plugin EditorConfig no VcCode;
+  2. Clicar com botão direito na raiz do projeto e e selecionar o Generate .editorConfig;
+    * sera gerado o arquivo .editorConfig;
 
-By Renato Welinton Schlogel!
+
+### ESLint
+
+  Ferramenta para padronização de codigo do projeto;
+
+  1. Instalar o ESLint : yarn add eslint -D;
+  2. Iniciar ESlint no projeto : yarn eslint --init;
+
+    1. How would you like to use ESLint? To check syntax, find problems,   and enforce code style
+    2. What type of modules does your project use? JavaScript modules (import/export)
+    3. Which framework does your project use? None of these
+    4. Does your project use TypeScript? Yes
+    5. Where does your code run? Node
+    6. How would you like to define a style for your project? Use a popular style guide
+    7. Which style guide do you want to follow? Airbnb: https://github.com/airbnb/javascript
+    8. What format do you want your config file to be in? JSON
+    9. Would you like to install them now with npm? No
+    10. yarn add -D  @typescript-eslint/eslint-plugin@latest eslint-config-airbnb-base@latest eslint-plugin-import@^2.20.1 @typescript-eslint/parser@latest
+  3. para automatizar os ajuste, no settings.json do seu editor, incluir as seguintes configurações:
+```
+   "[javascript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+        }
+    },
+    "[javascriptreact]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+        }
+    },
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+        }
+    },
+    "[typescriptreact]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true,
+        }
+    },
+```
+
+### Importando Arquivos TS
+
+  1. Adiconar a biblioteca a seguir: yarn add -D eslint-import-resolver-typescript;
+  2. Incluir no arquivo .selintrc.json a seguinte configuração:
+  ```
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
+  ```
+
+  3.No objeto rules do .selintrc.json incluir a config abaixo para não precisar incluir a estenxao ts nos import;
+```  
+    "import/extensins": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ]
+ ```
+
+### Prettier
+
+  Ferramenta para deixar o código mais Bonito;
+
+  1. Adicionar as sequintes dependencias:
+     yarn add -D prettier eslint-config-prettier eslint-plugin-prettier;
+  2. Adicionar as regras a seguir no extends do arquivo .eslintrc.json:
+```
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+```
+  3. Adicionar o plugin "prettier" no .eslintrc.json;
+  4. Adicionar o o rule "prettier/prettier": "error", no .eslintrc.json;
+  5. Criar na raiz do projeto o arquivo  prettier.config.js com o seguinte conteudo:
+```
+    module.exports = {
+      singleQuote: true, // utilizar aspas simples
+      trailingComma: 'all', // incluir vigula o ultimo  value dos objetos
+      arrowParens: 'avoid', // não colocar () em arrow Functions com apenas um parametro
+    };
+ ```
+  6. Criar .eslintignore na raiz do projeto com o seguinte conteudo:```
+```
+    /*.js
+    node_modules
+    dist
+ ```
+
+### Debugando NodeJS (VSCode)
+
+  1. Na opção de Debug e mandar criar o .vscode/launch.json (ver configuração no arquivo);
+  2. No script dev:server incluir a flag --inspect
+
+
+
+<hr>
+<p align="center"> com :green_heart: Renato Welinton Schlogel </p>
+
+
+
+
