@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, Timestamp } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CreateAppointments1589514878641
   implements MigrationInterface {
