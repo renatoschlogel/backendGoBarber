@@ -1,6 +1,5 @@
 import { getRepository } from 'typeorm';
 
-import { response } from 'express';
 import User from '../models/User';
 
 interface Request {
