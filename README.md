@@ -34,6 +34,8 @@
   4. Listar a migrations executadas: yarn typeorm migration:show
 
 
+## Criptogaafia de senha
+  1. yarn add bcryptjs;
 
 
 
