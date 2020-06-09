@@ -38,6 +38,9 @@
   1. yarn add bcryptjs;
 
 
+## JWT:
+  1. yarn add jsonwebtoken;
+
 
 
 
