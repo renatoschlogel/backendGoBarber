@@ -12,4 +12,4 @@ class AppointmentRepository extends Repository<Appointment> {
   }
 }
 
-export default AppointmentRepository;
+export default new AppointmentRepository();
