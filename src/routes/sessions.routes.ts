@@ -7,12 +7,12 @@ sessionRouter.post('/', async (request, response) => {
   try {
     const { email, password } = request.body;
     const autenticationUserService = new AutenticationUserService();
-
+    console.log('boa tarde');
     const { user, token } = await autenticationUserService.execute({
       email,
       password,
     });
-
+    console.log('boa tarde 2');
     delete user.password;
 
     const session = { user, token };
