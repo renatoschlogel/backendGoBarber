@@ -41,6 +41,10 @@
 ## JWT:
   1. yarn add jsonwebtoken;
 
+## upload de imamgens:
+  1. yarn add multer;
+  2. Enviar imagem com o tipo MultPart Form;
+
 
 
 
