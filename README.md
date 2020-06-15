@@ -41,10 +41,12 @@
 ## JWT:
   1. yarn add jsonwebtoken;
 
-## upload de imamgens:
+## upload de imagens:
   1. yarn add multer;
   2. Enviar imagem com o tipo MultPart Form;
 
+## Tratamento de exceções;
+ 1. yarn add express-async-errors;
 
 
 
