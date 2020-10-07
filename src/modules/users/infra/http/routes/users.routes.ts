@@ -3,7 +3,6 @@ import multer from 'multer';
 
 import uploadConfig from '@config/upload';
 
-import { container } from 'tsyringe';
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 import UserController from '../controllers/UserController';
 import UserAvatarController from '../controllers/UserAvatarController';
