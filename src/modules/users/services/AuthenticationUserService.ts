@@ -34,7 +34,7 @@ class AutenticationUserService {
       throw new AppError('Incorrect email/password!', 401);
     }
 
-    const passwordMatchad = this.hashProvider.compareHash(
+    const passwordMatchad = await this.hashProvider.compareHash(
       password,
       user.password,
     );
