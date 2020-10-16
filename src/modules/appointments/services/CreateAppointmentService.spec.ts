@@ -1,3 +1,4 @@
+import AppError from '@shared/errors/AppError';
 import FakeAppointmentRepository from '../repositories/fakes/FakeAppointmentRepository';
 import CreateAppointmentService from './CreateAppointmentService';
 
@@ -35,6 +36,6 @@ describe('CreateAppointment', () => {
         date: data,
         provider_id: '2121212',
       }),
-    ).rejects.toBeInstanceOf(Error);
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

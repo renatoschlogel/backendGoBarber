@@ -1,4 +1,3 @@
-import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
@@ -7,6 +6,7 @@ import authConfig from '@config/auth';
 
 import User from '../infra/typeorm/entities/User';
 import IUsersRepository from '../repositories/IUsersRepository';
+import IHashProvider from '../providers/HashProviders/models/IHashProvider';
 
 interface IRequest {
   email: string;
@@ -23,6 +23,8 @@ class AutenticationUserService {
   constructor(
     @inject('UserRepository')
     private userRepository: IUsersRepository,
+    @inject('HashProvider')
+    private hashProvider: IHashProvider,
   ) {}
 
   public async execute({ email, password }: IRequest): Promise<IResponse> {
@@ -32,7 +34,10 @@ class AutenticationUserService {
       throw new AppError('Incorrect email/password!', 401);
     }
 
-    const passwordMatchad = compare(password, user.password);
+    const passwordMatchad = this.hashProvider.compareHash(
+      password,
+      user.password,
+    );
 
     if (!passwordMatchad) {
       throw new AppError('Incorrect email/password!', 401);
